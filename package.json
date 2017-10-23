@@ -1,0 +1,65 @@
+{
+    "name": "command-bug",
+    "displayName": "command-bug",
+    "description": "For reproducing bug",
+    "version": "0.0.1",
+    "publisher": "dlech",
+    "engines": {
+        "vscode": "^1.17.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.sayHello",
+        "onView:extension.view1"
+    ],
+    "main": "./out/src/extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.sayHello",
+                "title": "Hello World",
+                "category": "command-bug"
+            },
+            {
+                "command": "extension.clickMe",
+                "title": "Click Me",
+                "category": "command-bug"
+            }
+        ],
+        "views": {
+            "explorer": [
+                {
+                    "id": "extension.view1",
+                    "name": "View One"
+                }
+            ]
+        },
+        "menus": {
+            "commandPalette": [
+                {
+                    "command": "extension.sayHello"
+                }
+            ],
+            "view/item/context": [
+                {
+                    "command": "extension.clickMe"
+                }
+            ]
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "tsc -p ./",
+        "compile": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.0.3",
+        "vscode": "^1.0.0",
+        "mocha": "^2.3.3",
+        "@types/node": "^6.0.40",
+        "@types/mocha": "^2.2.32"
+    }
+}
